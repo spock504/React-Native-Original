@@ -57,43 +57,19 @@ const App: () => React$Node = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>One</Text>
-              <Text style={styles.sectionDescription} onPress={() => fn()}>react-native 调用android原生 </Text>
+              <Text style={styles.sectionTitle}>Android</Text>
+              <Text style={styles.sectionDescription} onPress={() => fn()}>RN 调用android原生 </Text>
+              <Text style={styles.sectionDescription} onPress={() => callAndroidPromise()}>RN Promise通信 </Text>
+              <Text style={styles.sectionDescription} onPress={() => callAndroidCallback()}>RN callback通信 </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Two</Text>
-              <Text style={styles.sectionDescription} onPress={() => callAndroidPromise()}>react-native Promise通信 </Text>
+              <Text style={styles.sectionTitle}>IOS</Text>
+              <Text style={styles.sectionDescription} onPress={() => fn()}>RN 调用android原生 </Text>
+              <Text style={styles.sectionDescription} onPress={() => callAndroidPromise()}>RN Promise通信 </Text>
+              <Text style={styles.sectionDescription} onPress={() => callAndroidCallback()}>RN callback通信 </Text>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Three</Text>
-              <Text style={styles.sectionDescription} onPress={() => callAndroidCallback()}>react-native callback通信 </Text>
-            </View>
-            {/* <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View> */}
             <LearnMoreLinks />
           </View>
         </ScrollView>
