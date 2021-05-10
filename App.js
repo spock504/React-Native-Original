@@ -27,6 +27,7 @@ import {
 
 const App: () => React$Node = () => {
 
+  // 1. Android方法
   const fn = () => {
     NativeModules.ToastModule.rnCallNative("react-native 调用android原生 弹窗提示！");
   }
@@ -49,6 +50,36 @@ const App: () => React$Node = () => {
       }
     )
   }
+
+  // 2. IOS方法
+  const CalendarManager = NativeModules.CalendarManager;
+  const callIosPromise = async () => {
+    try {
+      const eventId = await CalendarManager.createCalendarEvent(
+        'Party',
+        'my house'
+      );
+      console.log(`Created a new event with id ${eventId}`);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  const callIosCallback = () => {
+    CalendarManager.createCalendarEventCallback(
+      'testName',
+      {
+        location: 'location 详情'
+      },
+      (error, eventId) => {
+        if (error) {
+          console.error(`Error found! ${error}`);
+        }
+        console.log(`event id ${eventId} returned`);
+      }
+    );
+  }
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -58,6 +89,7 @@ const App: () => React$Node = () => {
           style={styles.scrollView}>
           <Header />
           <View style={styles.body}>
+
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Android</Text>
               <Text style={styles.sectionDescription} onPress={() => fn()}>RN 调用android原生 </Text>
@@ -66,9 +98,8 @@ const App: () => React$Node = () => {
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>IOS</Text>
-              <Text style={styles.sectionDescription} onPress={() => fn()}>RN 调用android原生 </Text>
-              <Text style={styles.sectionDescription} onPress={() => callAndroidPromise()}>RN Promise通信 </Text>
-              <Text style={styles.sectionDescription} onPress={() => callAndroidCallback()}>RN callback通信 </Text>
+              <Text style={styles.sectionDescription} onPress={() => callIosPromise()}>RN Promise通信 </Text>
+              <Text style={styles.sectionDescription} onPress={() => callIosCallback()}>RN callback通信 </Text>
             </View>
             <LearnMoreLinks />
           </View>

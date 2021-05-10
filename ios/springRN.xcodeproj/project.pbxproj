@@ -19,6 +19,7 @@
 		66CA6127851D3EBB13DB8570 /* libPods-springRN-springRNTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D9229237C0C71655AFBC78 /* libPods-springRN-springRNTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		87ED72939F8E6E68EA5CCC0F /* libPods-springRN-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE109A88750F5D4D8E7C733 /* libPods-springRN-tvOS.a */; };
+		BAB77DD4264682B9003305E0 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB77DD3264682B9003305E0 /* CalendarManager.m */; };
 		C48ECB265792169B91A1C0CD /* libPods-springRN-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CEAF2E531437CE5A89E44F /* libPods-springRN-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		947FE0D7D60F0B39C75E5284 /* Pods-springRN-springRNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-springRN-springRNTests.debug.xcconfig"; path = "Target Support Files/Pods-springRN-springRNTests/Pods-springRN-springRNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DE109A88750F5D4D8E7C733 /* libPods-springRN-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-springRN-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19C7AF8586DD344EBC77C2E /* Pods-springRN-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-springRN-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-springRN-tvOSTests/Pods-springRN-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		BAB77DD3264682B9003305E0 /* CalendarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarManager.m; sourceTree = "<group>"; };
+		BAB77DD9264682C3003305E0 /* CalendarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarManager.h; sourceTree = "<group>"; };
 		CA0558E1BFFA1103758779A8 /* Pods-springRN-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-springRN-tvOS.release.xcconfig"; path = "Target Support Files/Pods-springRN-tvOS/Pods-springRN-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		CA0B4A31C92EC353E7ED7DA0 /* Pods-springRN-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-springRN-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-springRN-tvOS/Pods-springRN-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DE1AC941B2540C5D8EBD7678 /* libPods-springRN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-springRN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +120,6 @@
 				4130AB5096153D558E2A8B55 /* Pods-springRN-tvOSTests.debug.xcconfig */,
 				A19C7AF8586DD344EBC77C2E /* Pods-springRN-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -175,6 +177,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				BAB77D782646390A003305E0 /* spring */,
 				13B07FAE1A68108700A75B9A /* springRN */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* springRNTests */,
@@ -196,6 +199,23 @@
 				2D02E4901E0B4A5D006451C7 /* springRN-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BAB77D782646390A003305E0 /* spring */ = {
+			isa = PBXGroup;
+			children = (
+				BAB77D7926463929003305E0 /* plugin */,
+			);
+			name = spring;
+			sourceTree = "<group>";
+		};
+		BAB77D7926463929003305E0 /* plugin */ = {
+			isa = PBXGroup;
+			children = (
+				BAB77DD3264682B9003305E0 /* CalendarManager.m */,
+				BAB77DD9264682C3003305E0 /* CalendarManager.h */,
+			);
+			name = plugin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +314,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1240;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -570,6 +590,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				BAB77DD4264682B9003305E0 /* CalendarManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +687,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = springRN;
+				SWIFT_OBJC_BRIDGING_HEADER = "springRN-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -688,6 +710,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = springRN;
+				SWIFT_OBJC_BRIDGING_HEADER = "springRN-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

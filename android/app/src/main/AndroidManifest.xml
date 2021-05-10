@@ -11,6 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
+        <!--    原生页面 ：包含点击返回react-native页面的按钮    -->
         <activity android:name=".MyActivity"></activity>
         <activity
             android:name=".MainActivity"
