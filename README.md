@@ -31,4 +31,7 @@ Activity是android系统的最小调度单位，而Intent则是安卓的进程�
 
 ### IOS
 新建 `CalendarManager.m` 和 `CalendarManager.h` 文件，`.h` 文件。
-在`.m`文件中创建 `createCalendarEventCallback`方法，用于RN端调用，并且通过`callback`原生回调RN端。
+- callback 回调
+  - 在`.m`文件中创建 `createCalendarEventCallback`方法，用于RN端调用，并且通过`callback`原生回调RN端。
+- promise回调
+  - 在`.m`文件中创建 `createCalendarEvent`方法，用于RN端调用，并且通过`promise`原生回调RN端。

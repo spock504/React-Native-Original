@@ -9,5 +9,7 @@
 #import <React/RCTEventEmitter.h>
 
 // 一个“原生模块”就是一个实现了“RCTBridgeModule”协议的 Objective-C 类
-@interface CalendarManager : NSObject <RCTBridgeModule>
+@interface CalendarManager : RCTEventEmitter <RCTBridgeModule>
++ (id)allocWithZone:(NSZone *)zone;
+- (void)calendarEventReminderReceived:(NSNotification *)notification;
 @end

@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,6 +15,7 @@ import {
   Text,
   StatusBar,
   NativeModules,
+  NativeEventEmitter,
 } from 'react-native';
 
 import {
@@ -52,7 +53,7 @@ const App: () => React$Node = () => {
   }
 
   // 2. IOS方法
-  const CalendarManager = NativeModules.CalendarManager;
+  const { CalendarManager } = NativeModules;
   const callIosPromise = async () => {
     try {
       const eventId = await CalendarManager.createCalendarEvent(
@@ -79,6 +80,25 @@ const App: () => React$Node = () => {
       }
     );
   }
+  // 3. IOS监听事件
+
+
+  useEffect(() => {
+    console.log('开始');
+    const calendarManagerEmitter = new NativeEventEmitter(CalendarManager);
+    const subscription = calendarManagerEmitter.addListener(
+      'EventReminder',
+      (reminder) => console.log("监听事件", reminder)
+    );
+    return () => { // useEffect卸载时解绑
+      console.log('结束');
+      subscription.remove();
+    }
+  }, []) // 第二个参数为一个dom依赖的数据
+
+  const callIosEvent = () => {
+    CalendarManager.sendEventReminder("事件") // 触发原生IOS中的监听事件
+  }
 
   return (
     <>
@@ -100,6 +120,7 @@ const App: () => React$Node = () => {
               <Text style={styles.sectionTitle}>IOS</Text>
               <Text style={styles.sectionDescription} onPress={() => callIosPromise()}>RN Promise通信 </Text>
               <Text style={styles.sectionDescription} onPress={() => callIosCallback()}>RN callback通信 </Text>
+              <Text style={styles.sectionDescription} onPress={() => callIosEvent()}>RN event通信 </Text>
             </View>
             <LearnMoreLinks />
           </View>
